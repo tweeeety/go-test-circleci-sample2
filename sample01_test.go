@@ -31,6 +31,10 @@ func TestTableSample(t *testing.T) {
 
 		fmt.Printf("loop %d\n", i+1)
 		time.Sleep(1 * time.Second)
+
+		if i%3 == 0 {
+			t.Errorf("fail test, i=%d", i)
+		}
 	}
 
 	fmt.Println("%+v", cs)
