@@ -25,7 +25,7 @@ func TestTableSample(t *testing.T) {
 
 	cs := Cases{}
 
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 20; i++ {
 		cs = append(cs, c1)
 		cs = append(cs, c2)
 
