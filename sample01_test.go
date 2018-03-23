@@ -3,7 +3,6 @@ package sample01
 import (
 	"fmt"
 	"testing"
-	"time"
 )
 
 func TestHelloWorld(t *testing.T) {
@@ -25,14 +24,14 @@ func TestTableSample(t *testing.T) {
 
 	cs := Cases{}
 
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 100000; i++ {
 		cs = append(cs, c1)
 		cs = append(cs, c2)
 
 		fmt.Printf("loop %d\n", i+1)
-		time.Sleep(1 * time.Second)
+		//time.Sleep(1 * time.Second)
 
-		if i%3 == 0 {
+		if i%100 == 0 {
 			t.Errorf("fail test, i=%d", i)
 		}
 	}
