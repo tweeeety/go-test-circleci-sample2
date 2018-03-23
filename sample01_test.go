@@ -38,7 +38,6 @@ func TestTableSample1(t *testing.T) {
 	i := 0
 	for _, c := range *cases {
 		i = i + 1
-		fmt.Println(fmt.Sprintf("%+v", c))
 		if i%100 == 0 {
 			t.Errorf("fail test, i=%d", i)
 		}
