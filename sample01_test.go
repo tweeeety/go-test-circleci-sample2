@@ -3,7 +3,6 @@ package sample01
 import (
 	"fmt"
 	"testing"
-	"time"
 )
 
 func TestHelloWorld(t *testing.T) {
@@ -19,23 +18,42 @@ type Case struct {
 	in, want string
 }
 
-func TestTableSample(t *testing.T) {
+func tableSample() *Cases {
 	c1 := Case{"hoge", "egoh"}
 	c2 := Case{"fuga", "aguf"}
 
 	cs := Cases{}
 
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 100000; i++ {
 		cs = append(cs, c1)
 		cs = append(cs, c2)
+	}
 
-		fmt.Printf("loop %d\n", i+1)
-		time.Sleep(1 * time.Second)
+	return &cs
+}
 
-		if i%3 == 0 {
+func TestTableSample1(t *testing.T) {
+	cases := tableSample()
+
+	i := 0
+	for _, c := range *cases {
+		i = i + 1
+		fmt.Println(fmt.Sprintf("%+v", c))
+		if i%100 == 0 {
 			t.Errorf("fail test, i=%d", i)
 		}
 	}
+}
 
-	fmt.Println("%+v", cs)
+func TestTableSample2(t *testing.T) {
+	cases := tableSample()
+
+	i := 0
+	for _, c := range *cases {
+		i = i + 1
+		fmt.Println(fmt.Sprintf("%+v", c))
+		if i%100 == 0 {
+			t.Errorf("fail test, i=%d", i)
+		}
+	}
 }
